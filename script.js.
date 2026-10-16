@@ -1,0 +1,32 @@
+
+const year = document.getElementById("year");
+
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+// Smoothly handle navigation links
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
+});
+
+// Simple contact button feedback
+const contactButton = document.querySelector(
+  '.contact a[href^="mailto:"]'
+);
+
+if (contactButton) {
+  contactButton.addEventListener("click", () => {
+    console.log("Contact button selected.");
+  });
+}
